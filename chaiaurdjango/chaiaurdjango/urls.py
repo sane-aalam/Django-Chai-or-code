@@ -17,6 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+# Now, let’s configure our projects urls.py file to reflect media files.
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +28,4 @@ urlpatterns = [
     path('contact/', views.contact,name="contact"),
     path('chai/', include('chai.urls')),
     path("__reload__/", include("django_browser_reload.urls")),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

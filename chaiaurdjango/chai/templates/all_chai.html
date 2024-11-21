@@ -1,7 +1,23 @@
+{% extends "layout.html" %} {% block title %}All Chai for you{% endblock %}
+{%block content%}
 
-
-{% block title %}Home{% endblock %}
-{% block content%}
-<h1>all chai is avaialbe</h1>
-<p>This is the all chai page.</p>
+<div class="grid grid-cols-3 gap-4 m-4">
+  {% for chai in chais %}
+  <div class="bg-blue-700 p-5 rounded">
+    <img
+      class="rounded shadow-lg"
+      src="{{ chai.image.url }}"
+      alt="{{ chai.name }}"
+    />
+    <h3 class="text-2xl font-bold">{{ chai.name }}</h3>
+    <a her="#">
+      <button
+        class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+      >
+        {{chai.type}} - {{chai.id}}
+      </button>
+    </a>
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}
