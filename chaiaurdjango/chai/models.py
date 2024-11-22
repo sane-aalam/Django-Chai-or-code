@@ -48,11 +48,12 @@
 from django.utils import timezone
 from django.db import models
 
-class ChaiVariety(models.Model):    
+class ChaiVariety(models.Model):   
+     
     CHAI_TYPES_CHOICES = [
         ('ML', 'MASALA'),
         ('GR', 'GINGER'),
-        ('KL', 'KIWI'),
+        ('KL', 'KIWI'), 
         ('PL', 'PLAIN'),
         ('EL', 'ELAICHI'),
     ]
@@ -61,6 +62,7 @@ class ChaiVariety(models.Model):
     image = models.ImageField(upload_to='chais/')
     current_date = models.DateTimeField(default=timezone.now)
     type = models.CharField(max_length=2,choices=CHAI_TYPES_CHOICES,default='ML')
+    description = models.TextField(default='')
     
     # The __str__ method is used to return a string representation of the object. In this case, 
     # it returns the name of the chai variety.

@@ -1,0 +1,8 @@
+{% extends "layout.html" %} {% block title %}Chai details page{% endblock %}
+{%block content%}
+<div class="grid gap-4 m-4">
+  <h1>{{ chai.name }}</h1>
+  <p>{{ chai.description }}</p>
+  <img class="size-min" src="{{ chai.image.url }}" alt="{{ chai.name }}" />
+  <div>{% endblock %}</div>
+</div>
